@@ -1,4 +1,4 @@
-# Work Hours Calculator
+# Work Hours Calculator🚀
 
 Welcome to the **EffortClock**! This tool is designed to help you effortlessly calculate your total working hours over a selected period, with the added convenience of exporting the results to a downloadable Excel file. This application is fully responsive and user-friendly, making it ideal for tracking weekly hours across all seven days of the week.
 
