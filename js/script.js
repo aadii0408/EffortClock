@@ -1,32 +1,3 @@
-// Toggle the daily hours inputs based on selected working days
-// function toggleDaySelection() {
-//     const selectedDays = Array.from(document.querySelectorAll('.working-day:checked')).map(input => input.value);
-//     generateDailyHoursInputs(selectedDays);
-// }
-
-// // Dynamically generate daily working hour inputs based on selected days
-// function generateDailyHoursInputs(selectedDays) {
-//     const container = document.getElementById('daily-hours-container');
-//     container.innerHTML = ''; // Clear previous inputs
-
-//     selectedDays.forEach(day => {
-//         const dayName = getDayName(day);
-//         const row = document.createElement('div');
-//         row.classList.add('daily-hours-row');
-//         row.innerHTML = `
-//             <label for="hours-${day}">${dayName} Hours:</label>
-//             <input type="text" id="hours-${day}" name="hours-${day}" placeholder="HH:MM" required>
-//         `;
-//         container.appendChild(row);
-//     });
-// }
-
-// // Function to get the name of the day based on its value (1 = Monday, 2 = Tuesday, etc.)
-// function getDayName(dayValue) {
-//     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-//     return days[dayValue - 1]; // Return the corresponding day name
-// }
-
 function toggleDaySelection() {
     const selectedDays = Array.from(document.querySelectorAll('.working-day:checked')).map(input => input.value);
     generateDailyHoursInputs(selectedDays);
@@ -61,130 +32,12 @@ function convertToDecimal(time) {
     return hours + minutes / 60;
 }
 
-// Convert HH:MM time to decimal hours (e.g., 7:30 -> 7.5)
-
 // Calculate total working hours from the provided daily hours
 function calculateTotalHours(dailyHoursByDay) {
     return Object.values(dailyHoursByDay).reduce((total, hours) => total + hours, 0).toFixed(2);
 }
 
-// // Save and calculate total working hours
-// function saveData(event) {
-//     event.preventDefault();
-
-//     const dailyHoursByDay = {};
-
-//     // Get the selected working days and corresponding hours
-//     Array.from(document.querySelectorAll('.working-day:checked')).forEach(option => {
-//         const dayValue = parseInt(option.value);
-//         const dailyHours = document.getElementById(`hours-${dayValue}`).value.trim();
-
-//         if (dailyHours) {
-//             // Convert HH:MM to decimal hours
-//             const decimalHours = convertToDecimal(dailyHours);
-//             dailyHoursByDay[dayValue] = decimalHours;
-//         }
-//     });
-
-//     // If no hours are entered, alert the user
-//     if (Object.keys(dailyHoursByDay).length === 0) {
-//         alert('Please fill in the hours for the selected days.');
-//         return;
-//     }
-
-//     const totalHours = calculateTotalHours(dailyHoursByDay);
-
-//     // Display result with animation
-//     const resultDiv = document.getElementById('result');
-//     resultDiv.style.display = 'block';
-//     resultDiv.textContent = `Total Working Hours: ${totalHours} hours`;
-
-//     // Show Completion Message with Animation
-//     const completionMessage = document.getElementById('completion-message');
-//     completionMessage.textContent = `Hooray! You worked a total of ${totalHours} hours! 🎉`;
-
-// function saveData(event) {
-//     event.preventDefault();
-
-//     const dailyHoursByDay = {};
-
-//     // Get the selected working days and corresponding hours
-//     Array.from(document.querySelectorAll('.working-day:checked')).forEach(option => {
-//         const dayValue = parseInt(option.value);
-//         const dailyHours = document.getElementById(`hours-${dayValue}`).value.trim();
-
-//         if (dailyHours) {
-//             // Convert HH:MM to decimal hours
-//             const decimalHours = convertToDecimal(dailyHours);
-//             dailyHoursByDay[dayValue] = decimalHours;
-//         }
-//     });
-
-//     // If no hours are entered, alert the user
-//     if (Object.keys(dailyHoursByDay).length === 0) {
-//         alert('Please fill in the hours for the selected days.');
-//         return;
-//     }
-
-//     const totalHours = calculateTotalHours(dailyHoursByDay);
-
-//     // Display result with animation
-//     const resultDiv = document.getElementById('result');
-//     resultDiv.style.display = 'block';
-//     resultDiv.textContent = `Total Working Hours: ${totalHours} hours`;
-
-//     // Show Completion Message with Animation
-//     const completionMessage = document.getElementById('completion-message');
-//     completionMessage.textContent = `Hooray! You worked a total of ${totalHours} hours! 🎉`;
-
-//     // Trigger Confetti Animation
-//     triggerConfetti();
-
-//     // Show Progress Bar
-//     showProgressBar(totalHours);
-
-//     // Generate and download the Excel file
-//     function generateExcelSheet(dailyHoursByDay, totalHours) {
-//         const userName = document.getElementById('user-name').value;
-//         const startDate = document.getElementById('start-date').value;
-//         const endDate = document.getElementById('end-date').value;
-
-//         const data = [
-//             ['Name:', userName],
-//             ['Start Date:', startDate],
-//             ['End Date:', endDate],
-//             [],
-//             ['Day', 'Hours'],
-//             ...Object.keys(dailyHoursByDay).map(day => [getDayName(day), dailyHoursByDay[day]]), ['Total', totalHours]
-//         ];
-
-//         const worksheet = XLSX.utils.aoa_to_sheet(data);
-//         const workbook = XLSX.utils.book_new();
-//         XLSX.utils.book_append_sheet(workbook, worksheet, 'Work Hours');
-
-//         // Generate the file name using the user's name
-//         const fileName = `${userName}_WorkHours.xlsx`;
-//         XLSX.writeFile(workbook, fileName);
-//     }
-
-
-//     // Trigger Confetti Animation
-//     triggerConfetti();
-
-//     // Show Progress Bar
-//     showProgressBar(totalHours);
-
-//     // Save data (mock-up for now)
-//     const data = {
-//         dailyHoursByDay: dailyHoursByDay,
-//         totalHours: totalHours
-//     };
-
-//     console.log('Saved Data:', data);
-//     alert('Data has been saved successfully!');
-// }
-
-
+// Save Data 
 function saveData(event) {
     event.preventDefault();
 
@@ -260,7 +113,6 @@ function generateExcelSheet(dailyHoursByDay, totalHours) {
     XLSX.writeFile(workbook, fileName);
 }
 
-
 // Show Progress Bar Animation
 function showProgressBar(totalHours) {
     const progressBarContainer = document.getElementById('progress-bar-container');
@@ -316,5 +168,3 @@ function triggerConfetti() {
         }
     })();
 }
-
-// Call this function whenever you want to trigger confetti animation and display quotes
