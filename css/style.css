@@ -1,0 +1,241 @@
+/* General Styles */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.calculator {
+    width: 100%;
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #3498db;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+label {
+    font-size: 1rem;
+    display: block;
+    margin: 12px 0 6px;
+    color: #000000;
+    text-align: left;
+}
+
+input[type="date"],
+input[type="text"],
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+
+/* Aligning Checkboxes and Inputs to the Left */
+
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.checkbox-container label {
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+    .calculator {
+        margin: 15px;
+        padding: 20px;
+    }
+    h2 {
+        font-size: 1.6rem;
+    }
+    label {
+        font-size: 0.9rem;
+    }
+    input[type="date"],
+    input[type="text"],
+    button {
+        font-size: 0.9rem;
+    }
+    .checkbox-container {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .calculator {
+        padding: 15px;
+    }
+    h2 {
+        font-size: 1.4rem;
+    }
+    label {
+        font-size: 0.8rem;
+    }
+    input[type="date"],
+    input[type="text"],
+    button {
+        font-size: 0.8rem;
+    }
+    .checkbox-container {
+        gap: 8px;
+    }
+}
+
+
+/* Result Styling */
+
+.result {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #27ae60;
+}
+
+
+/* Confetti Animation */
+
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+
+/* Style for AI Quotes */
+
+.ai-quote {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #28a745;
+    font-weight: bold;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideIn 1s forwards, fadeIn 0.5s forwards 1s;
+}
+
+
+/* Keyframe Animations */
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* Progress Bar Styles */
+
+.progress-bar-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #e0e0e0;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 20px;
+    background-color: #ff0101;
+    width: 0;
+    transition: width 0.5s ease-in-out;
+}
+
+
+/* Completion Message Styling */
+
+.completion-message {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #ea1515;
+    font-weight: bold;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideIn 1s forwards, fadeIn 0.5s forwards 1s;
+    /* Animation effect */
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

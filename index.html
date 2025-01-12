@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Hours Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+
+    <!-- Confetti Animation Script -->
+</head>
+
+<body>
+    <div class="calculator">
+        <h2>Work Hours Calculator</h2>
+        <form id="work-hours-form" onsubmit="saveData(event)">
+            <label for="user-name">Name:</label>
+            <input type="text" id="user-name" placeholder="Enter your name" required>
+
+
+            <!-- Start Date and End Date for Reference -->
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date" required>
+
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date" required>
+
+            <!-- Select Working Days with Checkboxes -->
+            <left>
+
+                <label>Select Working Days:</label>
+                <div class="checkbox-container">
+                    <label><input type="checkbox" value="1" class="working-day" onclick="toggleDaySelection()"> Monday</label>
+                    <label><input type="checkbox" value="2" class="working-day" onclick="toggleDaySelection()"> Tuesday</label>
+                    <label><input type="checkbox" value="3" class="working-day" onclick="toggleDaySelection()"> Wednesday</label>
+                    <label><input type="checkbox" value="4" class="working-day" onclick="toggleDaySelection()"> Thursday</label>
+                    <label><input type="checkbox" value="5" class="working-day" onclick="toggleDaySelection()"> Friday</label>
+                    <label><input type="checkbox" value="6" class="working-day" onclick="toggleDaySelection()"> Saturday</label>
+                    <label><input type="checkbox" value="7" class="working-day" onclick="toggleDaySelection()"> Sunday</label>
+                </div>
+            </left>
+
+            <!-- Daily Hours Inputs -->
+            <div id="daily-hours-container"></div>
+
+            <button type="submit">Calculate Total Hours</button>
+        </form>
+
+        <!-- Result Section with Animation -->
+        <div id="result" class="result" style="display:none;"></div>
+        <div id="completion-message" class="completion-message"></div>
+
+        <!-- For animated message -->
+        <!-- Progress Bar Container -->
+        <div id="progress-bar-container" class="progress-bar-container" style="display: none;">
+            <div id="progress-bar" class="progress-bar"></div>
+        </div>
+
+        <div id="ai-quote" class="ai-quote"></div>
+
+        <script src="js/script.js"></script>
+</body>
+
+</html>
